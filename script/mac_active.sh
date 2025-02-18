@@ -12,7 +12,7 @@ echo $cpDir
 if [ ! -d "${cpDir}" ]; then
   mkdir -p "${cpDir}"
 fi
-jarFile="${currCrackPath}/active-agt.jar"
+jarFile="${currCrackPath}/ag.jar"
 plugins="${currCrackPath}/plugins"
 config="${currCrackPath}/config"
 if [ -f "${jarFile}" ]; then
@@ -26,7 +26,7 @@ if [ -f "${jarFile}" ]; then
   fi
   $(cp -rf ${config}/* "${cpDir}/config")
 else
-  echo "active-agt.jar is missing, ${software} crack failed!"
+  echo "ag.jar is missing, ${software} crack failed!"
   exit
 fi
 softwareInstall="false"
@@ -47,7 +47,7 @@ for file in $(ls -a "$cpDir"); do
       else
         $(touch "$versionInstall")
       fi
-      $(echo "-javaagent:${cpDir}/active-agt.jar" >"${versionInstall}")
+      $(echo "-javaagent:${cpDir}/ag.jar" >"${versionInstall}")
       $(echo "--add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED" >>"${versionInstall}")
       $(echo "--add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED" >>"${versionInstall}")
     fi
